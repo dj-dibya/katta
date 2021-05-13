@@ -14,6 +14,7 @@ Rules details:
 The game starts with a score of 0 point for each player
 Each time a player win a point, the Game score changes as follow:
 0 -> 15 -> 30 -> 40-> Win game
+
 User Story 2 :
 
 As a tennis referee
@@ -28,6 +29,9 @@ Rules details:
 If the score is DEUCE , the player who  win the point take the ADVANTAGE
 If the player who has the ADVANTAGE win the  point, he win the game
 If the player who has the ADVANTAGE loose the point, the score is DEUCE
+
+----------------------------------------------------------------------------
+
 SPRINT 2 : Manage a Tennis SET within a tennis match
 
 User Story 1 :
@@ -45,6 +49,8 @@ Each time a player win a Game, the Set score changes as follow:
 1 -> 2 -> 3 -> 4 -> 5 -> 6 (-> 7)
 If a player reach the Set score of 6 and the other player has a Set score of 4 or lower, the player win the Set
 If a player win a Game and reach the Set score of 6 and the other player has a Set score of 5, a new Game must be played and the first player who reach the score of 7 wins the match
+
+
 User Story 2 :
 
 As a tennis referee
