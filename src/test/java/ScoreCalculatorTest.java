@@ -52,5 +52,35 @@ public class ScoreCalculatorTest {
                 Arguments.of(0, 3, "Roger", "Mahesh", "playerTwo", "winner : Mahesh")
         );
     }
+    //
+    @ParameterizedTest
+    @DisplayName("should test deuce condition in a game")
+    @MethodSource("dataProviderForDeuceCondition")
+    public void shouldTestDeuce(int playerOneScore, int playerTwoScore, String playerOneadvantage, String playerTwoadvantage, String expectedPoint) {
+
+        Player p1 = new Player("Roger",playerOneScore);
+        p1.setAdvantage(playerOneadvantage);
+        Player p2 = new Player("Mahesh",playerTwoScore);
+        p2.setAdvantage(playerTwoadvantage);
+        String result;
+        if(playerTwoScore > playerOneScore) {
+            result = sc.deuce(p2, p1);
+        } else {
+            result = sc.deuce(p1, p2);
+        }
+        assertEquals(expectedPoint,result);
+    }
+    private static Stream<Arguments> dataProviderForDeuceCondition() {
+        return Stream.of(
+                Arguments.of(0, 0, null, null, "deuce"),
+                Arguments.of(3, 3, null, null, "deuce"),
+                Arguments.of(4, 3, null, null, "Advantage - Roger"),
+                Arguments.of(4, 4, null, null, "deuce"),
+                Arguments.of(4, 5, null, null, "Advantage - Mahesh"),
+                Arguments.of(4, 5, null, "Y", "winner -> Mahesh"),
+                Arguments.of(6, 5, "Y", null, "winner -> Roger")
+        );
+    }
+
 
 }
