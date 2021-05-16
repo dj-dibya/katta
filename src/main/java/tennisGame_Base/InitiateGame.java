@@ -13,16 +13,22 @@ public class InitiateGame {
 
     public void startGame() {
         System.out.println("Match Started between : "+ playerOne.getName() +" and "+ playerTwo.getName());
-        System.out.println("Score : "+ playerOne.getName() +" : "+playerOne.getScore()+" || "+playerTwo.getName()+" : "+playerTwo.getScore());
+            System.out.println("Score : " + playerOne.getName() + " : " + playerOne.getScore() + " || " + playerTwo.getName() + " : " + playerTwo.getScore());
+            Player randomWinner = getRandomWinner(playerOne, playerTwo);
     }
 
     public Player getRandomWinner(Player playerOne, Player playerTwo) {
 
-        return null;
+        return playerOne;
     }
 
     public int randomPoints() {
         return 5;
+    }
+
+    public void updateScore(Player player) {
+        int newScore = player.getScore() + 1;
+        player.setScore(newScore);
     }
 
 }
