@@ -1,15 +1,28 @@
 package tennisGame_Base;
 
-public class InitiateGame {
-    private String player_one;
-    private String player_two;
+import tennisGame_Home.Player;
 
-    public InitiateGame(String player_one, String player_two) {
-        this.player_one = player_one;
-        this.player_two = player_two;
+public class InitiateGame {
+    private Player playerOne;
+    private Player playerTwo;
+
+    public InitiateGame(Player playerOne, Player playerTwo) {
+        this.playerOne = playerOne;
+        this.playerTwo = playerTwo;
     }
 
     public void startGame() {
-        System.out.println("Match Started between : "+player_one+" and "+ player_two);
+        System.out.println("Match Started between : "+ playerOne.getName() +" and "+ playerTwo.getName());
+        System.out.println("Score : "+ playerOne.getName() +" : "+playerOne.getScore()+" || "+playerTwo.getName()+" : "+playerTwo.getScore());
     }
+
+    public Player getRandomWinner(Player playerOne, Player playerTwo) {
+
+        return null;
+    }
+
+    public int randomPoints() {
+        return 5;
+    }
+
 }
