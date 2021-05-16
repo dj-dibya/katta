@@ -46,10 +46,14 @@ public class ScoreCalculatorTest {
                 Arguments.of(0, 0, null,null,null,null),
                 Arguments.of(1, 0, "Roger", "Mahesh", "playerOne", "Roger"),
                 Arguments.of(2, 0, "Roger", "Mahesh", "playerOne", "Roger"),
-                Arguments.of(3, 0, "Roger", "Mahesh", "playerOne", "winner : Roger"),
+                Arguments.of(3, 0, "Roger", "Mahesh", "playerOne", "winner -> Roger"),
+                Arguments.of(3, 1, "Roger", "Mahesh", "playerOne", "winner -> Roger"),
+                Arguments.of(3, 2, "Roger", "Mahesh", "playerOne", "Roger"),
                 Arguments.of(0, 1, "Roger", "Mahesh", "playerTwo", "Mahesh"),
                 Arguments.of(0, 2, "Roger", "Mahesh", "playerTwo", "Mahesh"),
-                Arguments.of(0, 3, "Roger", "Mahesh", "playerTwo", "winner : Mahesh")
+                Arguments.of(0, 3, "Roger", "Mahesh", "playerTwo", "winner -> Mahesh"),
+                Arguments.of(1, 3, "Roger", "Mahesh", "playerTwo", "winner -> Mahesh"),
+                Arguments.of(2, 3, "Roger", "Mahesh", "playerTwo", "Mahesh")
         );
     }
     //

@@ -2,6 +2,7 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
+import org.junit.jupiter.params.provider.Arguments;
 import org.junit.jupiter.params.provider.MethodSource;
 import org.junit.jupiter.params.provider.ValueSource;
 import org.mockito.Mockito;
@@ -11,6 +12,7 @@ import tennisGame_Home.Player;
 import java.io.ByteArrayOutputStream;
 import java.io.PrintStream;
 import java.util.regex.Matcher;
+import java.util.stream.Stream;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertTrue;
@@ -20,6 +22,7 @@ public class InitiategameTest {
     Player playerOne;
     Player playerTwo;
     InitiateGame game;
+
     @BeforeEach
     public void setUp() {
         System.setOut(new PrintStream(outputStreamCaptor));
@@ -28,20 +31,27 @@ public class InitiategameTest {
         game = new InitiateGame(playerOne,playerTwo);
     }
 
-    @Test
+    @ParameterizedTest
     @DisplayName("should start the game between two given players")
-    public void shouldStartTheGame() {
-        game.startGame();
-        assertEquals("Match Started between : Roger and Mahesh\r\nScore : Roger : 0 || Mahesh : 0", outputStreamCaptor.toString().trim());
+    @MethodSource("dataProviderToStartGame")
+    public void shouldStartTheGame(Player p1, Player p2, Player winner) {
+        InitiateGame tennisGame = new InitiateGame(p1,p2);
+        tennisGame.startGame();
     }
 
-    @ParameterizedTest
+    private static Stream<Arguments> dataProviderToStartGame() {
+        Player p1 = new Player("Roger",0);
+        Player p2 = new Player("Mahesh",0);
+        return Stream.of(
+                Arguments.of(p1,p2,p1)
+        );
+    }
+    //
+    @Test
     @DisplayName("should Return a player object each time player wins randomly")
-    @ValueSource(ints = {0,1})
-    public void shouldReturnRandomWinner(int randomPoint) {
-        Mockito.when(game.randomPoints()).thenReturn(randomPoint);
+    public void shouldReturnRandomWinner() {
         Player result = game.getRandomWinner(playerOne,playerTwo);
-        Player winner = randomPoint == 0 ? playerOne : playerTwo;
+        Player winner = result.getName().equalsIgnoreCase(playerOne.getName()) ? playerOne : playerTwo;
         assertEquals(winner,result);
     }
 
