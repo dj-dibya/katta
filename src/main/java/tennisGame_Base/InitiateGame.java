@@ -2,6 +2,8 @@ package tennisGame_Base;
 
 import tennisGame_Home.Player;
 
+import java.util.Random;
+
 public class InitiateGame {
     private Player playerOne;
     private Player playerTwo;
@@ -28,13 +30,13 @@ public class InitiateGame {
     }
 
     public Player getRandomWinner(Player playerOne, Player playerTwo) {
-        Player randomWinner = randomPoints() == 0 ? playerOne : playerTwo;
+        Player randomWinner = (randomPoints() == 0) ? playerOne : playerTwo;
         updateScore(randomWinner);
         return randomWinner;
     }
 
     public int randomPoints() {
-        return 5;
+        return new Random().nextInt(2);
     }
 
     public void updateScore(Player player) {
