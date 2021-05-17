@@ -4,24 +4,24 @@ import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.Arguments;
 import org.junit.jupiter.params.provider.MethodSource;
 import tennisGame_Base.InitiateGame;
-import tennisGame_Base.ScoreCalculator;
+import tennisGame_Base.GameScoreCalculator;
 import tennisGame_Home.Player;
 
 import java.util.stream.Stream;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
-public class ScoreCalculatorTest {
+public class GameScoreCalculatorTest {
     Player playerOne;
     Player playerTwo;
     InitiateGame game;
-    ScoreCalculator sc;
+    GameScoreCalculator sc;
     @BeforeEach
     public void setUp() {
         playerOne = new Player("Roger",0);
         playerTwo = new Player("Mahesh",0);
         game = new InitiateGame(playerOne,playerTwo);
-        sc = new ScoreCalculator();
+        sc = new GameScoreCalculator();
     }
     @ParameterizedTest
     @DisplayName("should calculate the actual result of the game and return result")
@@ -46,13 +46,13 @@ public class ScoreCalculatorTest {
                 Arguments.of(0, 0, null,null,null,null),
                 Arguments.of(1, 0, "Roger", "Mahesh", "playerOne", "Roger"),
                 Arguments.of(2, 0, "Roger", "Mahesh", "playerOne", "Roger"),
-                Arguments.of(3, 0, "Roger", "Mahesh", "playerOne", "winner -> Roger"),
-                Arguments.of(3, 1, "Roger", "Mahesh", "playerOne", "winner -> Roger"),
+                Arguments.of(3, 0, "Roger", "Mahesh", "playerOne", "game winner -> Roger"),
+                Arguments.of(3, 1, "Roger", "Mahesh", "playerOne", "game winner -> Roger"),
                 Arguments.of(3, 2, "Roger", "Mahesh", "playerOne", "Roger"),
                 Arguments.of(0, 1, "Roger", "Mahesh", "playerTwo", "Mahesh"),
                 Arguments.of(0, 2, "Roger", "Mahesh", "playerTwo", "Mahesh"),
-                Arguments.of(0, 3, "Roger", "Mahesh", "playerTwo", "winner -> Mahesh"),
-                Arguments.of(1, 3, "Roger", "Mahesh", "playerTwo", "winner -> Mahesh"),
+                Arguments.of(0, 3, "Roger", "Mahesh", "playerTwo", "game winner -> Mahesh"),
+                Arguments.of(1, 3, "Roger", "Mahesh", "playerTwo", "game winner -> Mahesh"),
                 Arguments.of(2, 3, "Roger", "Mahesh", "playerTwo", "Mahesh")
         );
     }

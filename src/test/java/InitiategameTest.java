@@ -4,14 +4,11 @@ import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.Arguments;
 import org.junit.jupiter.params.provider.MethodSource;
-import org.junit.jupiter.params.provider.ValueSource;
-import org.mockito.Mockito;
 import tennisGame_Base.InitiateGame;
 import tennisGame_Home.Player;
 
 import java.io.ByteArrayOutputStream;
 import java.io.PrintStream;
-import java.util.regex.Matcher;
 import java.util.stream.Stream;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
@@ -36,7 +33,7 @@ public class InitiategameTest {
     @MethodSource("dataProviderToStartGame")
     public void shouldStartTheGame(Player p1, Player p2, Player winner) {
         InitiateGame tennisGame = new InitiateGame(p1,p2);
-        tennisGame.startGame();
+        tennisGame.gameWinner();
     }
 
     private static Stream<Arguments> dataProviderToStartGame() {
