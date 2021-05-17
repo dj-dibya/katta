@@ -2,18 +2,27 @@ package tennisGame_Base;
 
 import tennisGame_Home.Player;
 
-public class ScoreCalculator {
+public class GameScoreCalculator {
     private static final int[] defaultPoints = new int[]{0, 15, 30, 40};
 
     public String getResultOfTheGame(Player gameWinner, Player gameLooser) {
-        if(gameWinner.getScore() == 3 && (gameWinner.getScore() - gameLooser.getScore()) >= 2) return "winner -> "+gameWinner.getName();
-        if(gameWinner.getScore() >= 3 && gameLooser.getScore() >= 3) return deuce(gameWinner,gameLooser);
+        if(gameWinner.getScore() == 3 && (gameWinner.getScore() - gameLooser.getScore()) >= 2) {
+            gameWinner.setCountSetWins(gameWinner.getCountSetWins() + 1);
+            return "game winner -> "+gameWinner.getName();
+        }
+        if(gameWinner.getScore() >= 3 || gameLooser.getScore() >= 3) return deuce(gameWinner,gameLooser);
         return gameWinner.getName();
     }
 
     public String deuce(Player gameWinner, Player gameLooser) {
         if(gameWinner.getScore() == gameLooser.getScore()) return "deuce";
-        if(gameWinner.getScore() > gameLooser.getScore() && "Y".equalsIgnoreCase(gameWinner.getAdvantage())) return "winner -> "+gameWinner.getName();
+        if(gameWinner.getScore() > gameLooser.getScore() && "Y".equalsIgnoreCase(gameWinner.getAdvantage())) {
+            gameWinner.setCountSetWins(gameWinner.getCountSetWins() + 1);
+            return "game winner -> "+gameWinner.getName();
+        }
+        if(gameWinner.getScore() - gameLooser.getScore() == 1 && gameLooser.getScore() == 2) {
+            return  gameWinner.getName();
+        }
         if(gameWinner.getScore() > gameLooser.getScore() && gameWinner.getAdvantage() == null) {
             gameWinner.setAdvantage("Y");
             gameLooser.setAdvantage(null);

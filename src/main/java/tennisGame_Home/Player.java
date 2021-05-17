@@ -4,6 +4,7 @@ public class Player {
     private String name;
     private int score;
     private String advantage;
+    private int countSetWins;
 
     public Player(String name, int score) {
         this.name = name;
@@ -32,5 +33,13 @@ public class Player {
 
     public void setAdvantage(String advantage) {
         this.advantage = advantage;
+    }
+
+    public int getCountSetWins() {
+        return countSetWins;
+    }
+
+    public void setCountSetWins(int countSetWins) {
+        this.countSetWins = countSetWins;
     }
 }
