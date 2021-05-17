@@ -6,6 +6,12 @@ public class SetScoreCalculator {
     private int playerOneWins;
     private int playerTwoWins;
 
+    /**
+     * This method will return result of a set
+     * @param playerOne
+     * @param playerTwo
+     * @return
+     */
     public String getResultOfTheSet(Player playerOne, Player playerTwo) {
         this.playerOneWins = playerOne.getCountSetWins();
         this.playerTwoWins = playerTwo.getCountSetWins();
@@ -14,6 +20,12 @@ public class SetScoreCalculator {
         return defaultWinner.getName();
     }
 
+    /**
+     * This method will handle win/ tie condition in a set
+     * @param playerOne
+     * @param playerTwo
+     * @return
+     */
     private String setWinner(Player playerOne, Player playerTwo) {
         if(playerOneWins >= 6 && (playerOneWins - playerTwoWins) >= 2) return "SetWinner => "+playerOne.getName();
         if(playerTwoWins >= 6 && (playerTwoWins - playerOneWins) >= 2) return "SetWinner => "+playerTwo.getName();
@@ -22,7 +34,12 @@ public class SetScoreCalculator {
         return "";
     }
 
-
+    /**
+     * This method will show result of each set
+     * @param playerOne
+     * @param playerTwo
+     * @param result
+     */
     public void disPlaySetResult(Player playerOne, Player playerTwo, String result) {
         System.out.println("SetScore :> " + playerOne.getName() + " :: " + playerOne.getCountSetWins() + " || " + playerTwo.getName() + " :: " + playerTwo.getCountSetWins());
         System.out.println("Set : "+result);

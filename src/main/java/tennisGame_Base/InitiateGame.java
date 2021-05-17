@@ -13,6 +13,9 @@ public class InitiateGame {
         this.playerTwo = playerTwo;
     }
 
+    /**
+     * This method will start each set  till it gets a winner
+     */
     public void startGame() {
         SetScoreCalculator setScoreCalculator = new SetScoreCalculator();
         String result;
@@ -30,7 +33,9 @@ public class InitiateGame {
             setScoreCalculator.disPlaySetResult(playerOne,playerTwo,result);
         } while(!result.contains("SetWinner"));
     }
-
+    /**
+     * This method will start each game till it gets a winner
+     */
     public void gameWinner() {
         System.out.println("Score : " + playerOne.getName() + " : " + playerOne.getScore() + " || " + playerTwo.getName() + " : " + playerTwo.getScore());
         GameScoreCalculator gameScoreCalculator = new GameScoreCalculator();
@@ -45,17 +50,23 @@ public class InitiateGame {
             gameScoreCalculator.displayWinnerResult(playerOne,playerTwo,resultOfGame);
         } while(!resultOfGame.contains("winner"));
     }
-
+    /**
+     * This method will get a random winner each game
+     */
     public Player getRandomWinner(Player playerOne, Player playerTwo) {
         Player randomWinner = (randomPoints() == 0) ? playerOne : playerTwo;
         updateScore(randomWinner);
         return randomWinner;
     }
-
+    /**
+     * This method will generate random numbers between 0 and 1
+     */
     public int randomPoints() {
         return new Random().nextInt(2);
     }
-
+    /**
+     * This method increment current score of each random winner
+     */
     public void updateScore(Player player) {
         int newScore = player.getScore() + 1;
         player.setScore(newScore);

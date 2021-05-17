@@ -4,6 +4,11 @@ import tennisGame_Base.InitiateGame;
 import tennisGame_Home.Player;
 
 public class GameReferee {
+    /**
+     * Starting of the application
+     * This method will drive the Game
+     * @param args
+     */
     public static void main(String [] args) {
         Player playerOne = new Player("Roger",0);
         Player playerTwo = new Player("Novak",0);
