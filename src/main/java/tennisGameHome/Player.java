@@ -1,4 +1,4 @@
-package tennisGame_Home;
+package tennisGameHome;
 
 public class Player {
     private String name;

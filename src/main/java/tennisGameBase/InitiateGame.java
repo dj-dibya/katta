@@ -1,6 +1,6 @@
-package tennisGame_Base;
+package tennisGameBase;
 
-import tennisGame_Home.Player;
+import tennisGameHome.Player;
 
 import java.util.Random;
 

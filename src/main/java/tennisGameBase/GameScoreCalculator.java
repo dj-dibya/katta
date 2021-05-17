@@ -1,6 +1,6 @@
-package tennisGame_Base;
+package tennisGameBase;
 
-import tennisGame_Home.Player;
+import tennisGameHome.Player;
 
 public class GameScoreCalculator {
     private static final int[] defaultPoints = new int[]{0, 15, 30, 40};

@@ -1,6 +1,8 @@
-package tennisGame_Base;
+package tennisGameBase;
 
-import tennisGame_Home.Player;
+import tennisGameHome.Player;
+
+import static tennisGameBase.TennisConstants.SET_WINNER;
 
 public class SetScoreCalculator {
     private int playerOneWins;
@@ -27,10 +29,10 @@ public class SetScoreCalculator {
      * @return
      */
     private String setWinner(Player playerOne, Player playerTwo) {
-        if(playerOneWins >= 6 && (playerOneWins - playerTwoWins) >= 2) return "SetWinner => "+playerOne.getName();
-        if(playerTwoWins >= 6 && (playerTwoWins - playerOneWins) >= 2) return "SetWinner => "+playerTwo.getName();
-        if(playerOneWins == 7 && (playerTwoWins >=5 && playerTwoWins <7)) return "SetWinner => "+playerOne.getName();
-        if(playerTwoWins == 7 && (playerOneWins >=5 && playerOneWins <7)) return "SetWinner => "+playerTwo.getName();
+        if(playerOneWins >= 6 && (playerOneWins - playerTwoWins) >= 2) return SET_WINNER+playerOne.getName();
+        if(playerTwoWins >= 6 && (playerTwoWins - playerOneWins) >= 2) return SET_WINNER+playerTwo.getName();
+        if(playerOneWins == 7 && (playerTwoWins >=5 && playerTwoWins <7)) return SET_WINNER+playerOne.getName();
+        if(playerTwoWins == 7 && (playerOneWins >=5 && playerOneWins <7)) return SET_WINNER+playerTwo.getName();
         return "";
     }
 

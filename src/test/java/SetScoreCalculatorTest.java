@@ -3,9 +3,9 @@ import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.Arguments;
 import org.junit.jupiter.params.provider.MethodSource;
-import tennisGame_Base.InitiateGame;
-import tennisGame_Base.SetScoreCalculator;
-import tennisGame_Home.Player;
+import tennisGameBase.InitiateGame;
+import tennisGameBase.SetScoreCalculator;
+import tennisGameHome.Player;
 import java.util.stream.Stream;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;

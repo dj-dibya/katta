@@ -1,7 +1,7 @@
-package tennisGame_Top;
+package tennisGameTop;
 
-import tennisGame_Base.InitiateGame;
-import tennisGame_Home.Player;
+import tennisGameBase.InitiateGame;
+import tennisGameHome.Player;
 
 public class GameReferee {
     /**
