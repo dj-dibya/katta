@@ -28,7 +28,7 @@ public class GameScoreCalculator {
             gameLooser.setAdvantage(null);
             return "Advantage - "+gameWinner.getName();
         }
-        return null;
+        return gameWinner.getName();
     }
 
     public void displayWinnerResult(Player playerOne, Player playerTwo, String point) {
