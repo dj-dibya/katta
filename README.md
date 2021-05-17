@@ -1,4 +1,12 @@
 # tennis game
+
+You can run the Tennis class on your IDE or by console:
+
+./gradlew fatJar
+java -jar build/libs/tennis-game-all-1.0-SNAPSHOT.jar
+
+Instructions
+
 SPRINT 1 : Manage a tennis GAME within a set of a tennis matched section
 
 User Story 1 :
